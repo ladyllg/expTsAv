@@ -80,6 +80,8 @@ export class Api {
   }
 
   private async router() {
+    this.server.use(express.urlencoded({ extended: false }));
+
     this.server.use(router);
 
     try {
