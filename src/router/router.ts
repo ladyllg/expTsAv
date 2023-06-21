@@ -10,12 +10,16 @@ router.get('/about', mainController.about);
 router.get('/ui', mainController.ui);
 
 // Departamento controller
-router.get('/dept', deptController.index);
-router.get('/dept/create', deptController.create);
-router.post('/dept/create', deptController.create);
+router.get('/dept', checkAuth, deptController.index);
+router.get('/dept/create', checkAuth, deptController.create);
+router.post('/dept/create', checkAuth, deptController.create);
 router.get('/dept/update/:id', deptController.update);
 router.post('/dept/update/:id', deptController.update);
 router.get('/dept/:id', deptController.read);
 router.post('/dept/:id', deptController.del);
+
+router.get('/login', mainController.login);
+router.post('/login', mainController.login);
+router.get('/logout', mainController.logout);
 
 export default router;
