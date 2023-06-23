@@ -16,7 +16,6 @@ import sass from 'node-sass-middleware';
 import logger from './middlewares/logger';
 
 import cookieParser from 'cookie-parser';
-import csurf from 'csurf';
 
 const models = [VersaoDB, Funcionarios, Departamentos, Projetos, Dependentes];
 
@@ -57,7 +56,7 @@ export class Api {
   private async middleware() {
     this.server.use(express.urlencoded({ extended: false }))
     this.server.use(cookieParser())
-    this.server.use(csurf({ cookie: true }));
+    //this.server.use(csurf({ cookie: true }));
     this.server.use(logger('completo'));
 
     this.server.use(
